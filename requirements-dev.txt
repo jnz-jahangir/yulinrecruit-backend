@@ -1,0 +1,9 @@
+-r requirements.txt
+
+# typing
+mypy~=1.10.0
+typing-extensions~=4.12.2
+types-markdown
+types-pytz
+types-pyOpenSSL
+types-psutil

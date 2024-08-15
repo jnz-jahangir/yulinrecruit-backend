@@ -1,0 +1,13 @@
+{% extends 'list.html' %}
+
+{% block model_menu_bar_before_filters %}
+    <li>
+        <a href="{{ get_url('.move_group', url=return_url) }}">Move Group</a>
+    </li>
+    <li>
+        <a href="{{ get_url('.anticheat_logs') }}">Show Logs</a>
+    </li>
+    <li>
+        <a href="{{ get_url('.writeup_stats') }}">Writeup Stats</a>
+    </li>
+{% endblock %}
