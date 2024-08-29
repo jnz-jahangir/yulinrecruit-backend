@@ -45,10 +45,11 @@ class UserProfileStore(Table):
     VAL_COMMENT = re.compile(r'^.{0,100}$')
 
     PROFILE_FOR_GROUP = {
-        'staff': ['nickname', 'tel', 'qq', 'comment'],
-        'pku': ['nickname', 'tel', 'qq', 'comment'],
-        'other': ['nickname', 'qq', 'comment'],
-        'banned': ['nickname', 'qq', 'comment'],
+        'staff': ['nickname', 'tel', 'qq'],
+        'newbie': ['nickname', 'tel', 'qq'],
+        'oldbie': ['nickname', 'qq'],
+        'other': ['nickname', 'qq'],
+        'banned': ['nickname', 'qq'],
     }
 
     # https://unicode.org/reports/tr51/proposed.html

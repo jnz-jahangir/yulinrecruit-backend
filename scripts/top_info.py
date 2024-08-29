@@ -17,7 +17,7 @@ if __name__=='__main__':
     worker = Worker('worker-test')
     asyncio.run(worker._before_run())
 
-    b = worker.game.boards['score_pku']
+    b = worker.game.boards['score_newbie']
     assert isinstance(b, ScoreBoard)
     score_threshold = b.board[N_THRESHOLD-1][1]
 

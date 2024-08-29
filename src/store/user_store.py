@@ -34,13 +34,14 @@ class UserStore(Table):
     last_feedback_ms = Column(BigInteger, nullable=True)
 
     GROUPS = {
-        'pku': '北京大学',
+        'newbie': '新生',
+        'oldbie': '老生',
         'other': '校外选手',
         'staff': '工作人员',
         'banned': '已封禁',
     }
-    MAIN_BOARD_GROUPS = ['pku']
-    TOT_BOARD_GROUPS = ['pku', 'other']
+    MAIN_BOARD_GROUPS = ['newbie']
+    TOT_BOARD_GROUPS = ['newbie', 'oldbie', 'other']
 
     def __repr__(self) -> str:
         nick = '(no profile)' if self.profile is None else self.profile.nickname_or_null

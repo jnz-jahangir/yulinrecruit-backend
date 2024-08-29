@@ -24,11 +24,40 @@ class ChallengeStore(Table):
     MAX_FLAG_LEN = 110
 
     CAT_COLORS = {
-        'Tutorial': '#333333',
-        'Misc': '#7e2d86',
-        'Web': '#2d8664',
-        'Binary': '#864a2d',
-        'Algorithm': '#2f2d86',
+        "Tutorial": "#177cb0",
+        "Misc": "#ff9966",
+        "Web": "#003472",
+        "Binary": "#3b2e7e",
+        "Algorithm": "#4a4266",
+        "Crypto": "#a25768",
+        "Reverse": "#003371",
+        "Pwn": "#4c8dae",
+        "IOT": "#3d3b4f",
+        "SQLi": "#808080",
+        "XSS": "#725e82",
+        "LFI": "#549688",
+        "RFI": "#2c4f54",
+        "RCE": "#56564b",
+        "CSRF": "#8c7042",
+        "SSRF": "#897858",
+        "Android": "#FFFACD",
+        "Intranet": "#9f9847",
+        "Forensics": "#333300",
+        "Stego": "#556B2F",
+        "Recon": "#008B8B",
+        "OSINT": "#00CED1",
+        "Cloud": "#B0E0E6",
+        "Blockchain": "#6495ED",
+        "Reverse Engineering": "#6A5ACD",
+        "Miscellaneous": "#483D8B",
+        "DevOops": "#6a6ae1",
+        "SRC": "#BA55D3",
+        "SA": "#1a53ff",
+        "Upload": "#458B74",
+        "SignIn": "#8B3A3A",
+        "Design": "#8B008B",
+        "SSTI": "#FFC0CB",
+        "SocialEngineer":"#FFBB0A"
     }
     FALLBACK_CAT_COLOR = '#000000'
 
@@ -97,6 +126,10 @@ class ChallengeStore(Table):
                 assert 'url' in action, 'webpage action should have url'
                 assert isinstance(action['url'], str), 'webpage action url should be str'
 
+            if action['type']=='card':
+                assert 'url' in action, 'card action should have url'
+                assert isinstance(action['url'], str), 'card action url should be str'
+
             if action['type']=='webdocker':
                 assert 'host' in action, 'webdocker action should have host'
                 assert isinstance(action['host'], str), 'webdocker action host should be str'
@@ -157,6 +190,7 @@ class ChallengeStore(Table):
         'terminal': '''{"name": "题目", "effective_after": 0, "type": "terminal", "host" : "probXX.geekgame.pku.edu.cn", "port" : 0}''',
         'attachment': '''{"name": "题目附件", "effective_after": 0, "type": "attachment", "filename" : "probXX.zip", "file_path": ""}''',
         'dyn_attachment': '''{"name": "题目附件", "effective_after": 0, "type": "dyn_attachment", "filename" : "probXX.zip", "module_path": ""}''',
+        'card': '''{"name": "题目网页", "effective_after": 0, "type": "card", "url" : "https://probXX.geekgame.pku.edu.cn/?token={{token}}"}''',
     }
 
     @classmethod

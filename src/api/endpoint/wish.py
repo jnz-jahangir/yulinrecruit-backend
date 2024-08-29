@@ -159,8 +159,8 @@ async def get_game(req: Request, worker: Worker, user: Optional[User]) -> Dict[s
 
         store_anticheat_log(req, ['open_game'])
 
-        active_board_key = 'score_pku' if user._store.group in user._store.MAIN_BOARD_GROUPS else 'score_all'
-        active_board_name = '北京大学' if user._store.group in user._store.MAIN_BOARD_GROUPS else '总'
+        active_board_key = 'score_newbie' if user._store.group in user._store.MAIN_BOARD_GROUPS else 'score_all'
+        active_board_name = '新生' if user._store.group in user._store.MAIN_BOARD_GROUPS else '总'
         active_board = worker.game.boards[active_board_key]
         assert isinstance(active_board, ScoreBoard)
 

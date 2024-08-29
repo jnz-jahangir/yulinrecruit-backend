@@ -36,7 +36,7 @@ CARSI_PRIV_KEY: Optional[OpenSSL.crypto.PKey] = None
 #with open('/path/to/carsi.priv') as f:
 #    CARSI_PRIV_KEY = OpenSSL.crypto.load_privatekey(OpenSSL.crypto.FILETYPE_PEM, f.read())
 
-FEISHU_WEBHOOK_ADDR: Optional[str] = 'https://open.feishu.cn/open-apis/bot/v2/hook/...' # None to disable feishu push
+FEISHU_WEBHOOK_ADDR: Optional[str] = None # None to disable feishu push
 
 #### RANDOM BULLSHITS
 
@@ -117,7 +117,7 @@ REGISTRATION_ENABLED = True # can register new user; if set to false, only exist
 
 def IS_ADMIN(user: UserStore) -> bool:
     ADMIN_UIDS = [1]
-    print('[ADMIN INFO]', user.id in ADMIN_UIDS)
+    # print('[ADMIN INFO]', user.id in ADMIN_UIDS)
     return (
         user is not None
         and user.id in ADMIN_UIDS

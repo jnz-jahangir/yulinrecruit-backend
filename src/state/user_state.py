@@ -234,7 +234,7 @@ class User(WithGameLifecycle):
         return None
 
     def writeup_required(self) -> bool:
-        board = self._game.boards['score_pku']
+        board = self._game.boards['score_newbie']
         assert isinstance(board, ScoreBoard)
 
         return (

@@ -59,7 +59,7 @@ def export_problemset(game: Game) -> None:
             for u in flag.passed_users:
                 sub = u.passed_flags[flag]
                 cat = '2' if sub._store.precentage_override_or_null is not None else '1'
-                grp = 'pku' if u._store.group == 'pku' else 'other'
+                grp = 'newbie' if u._store.group == 'newbie' else 'other'
                 n_passed[f'{grp}_{cat}'] += 1
 
             rows.append([
@@ -131,7 +131,7 @@ def export_official_writeup(game: Game, ch: Challenge, p: Path) -> None:
                 d.append(f'**[【隐藏附件：{fn}】](attachment/{fn})**')
             else:
                 d.append(f'**[【附件：下载{act["name"]}（{fn}）】](attachment/{fn})**')
-        elif act['type'] in ['webpage', 'webdocker']:
+        elif act['type'] in ['webpage', 'webdocker', 'card']:
             d.append(f'**【网页链接：访问{act["name"]}】**')
         elif act['type']=='terminal':
             d.append(f'**【终端交互：连接到{act["name"]}】**')
@@ -154,7 +154,7 @@ def export_ranking_list(game: Game):
         for key, b in game.boards.items()
     ))
 
-    d.append('分数排名截止到前100名。只有“北京大学”组别的校内选手参与评奖。')
+    d.append('分数排名截止到前100名。只有“新生”组别的校内选手参与招新。')
     d.append(f'排行榜存档时间为 {datetime.datetime.now().strftime("%Y-%m-%d %H:%M")}，选手昵称可能有变化。')
 
     with (EXPORT_PATH / 'ranking' / 'README.md').open('w', encoding='utf-8') as f:
