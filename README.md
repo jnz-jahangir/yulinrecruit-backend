@@ -33,6 +33,10 @@ Although nobody uses Windows on a server, it is a good news if you develop on Wi
 
 - Install Python (≥3.8)
 - `pip install -r requirements.txt`
+- Edit sanic-mail package (Damn shit package)
+  - Find the file named `__init__.py` in sanic-mail package folder
+  - Comment out the line `app.register_listener(self.smtp_connection, "before_server_start")` and `app.register_listener(self.smtp_close, "before_server_stop")`
+  - Insert `app.ctx.smtp_connect = self.smtp_connection` and `app.ctx.smtp_close = self.smtp_close`
 - Install MySQL server (≥5.7.8, or MariaDB ≥10.2.7 for the JSON datatype) and set up a database
   - `CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';`
   - `CREATE DATABASE database;`

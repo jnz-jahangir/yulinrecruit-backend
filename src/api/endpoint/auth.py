@@ -74,7 +74,7 @@ async def auth_uestc_mail_send(_req: Request) -> HTTPResponse:
     content = html.replace("{{url}}", url)
 
     # 从req的post中获取email
-    # await _req.app.ctx.smtp_connect(_req.app, None)
+    await _req.app.ctx.smtp_connect(_req.app, None)
     await _req.app.ctx.send_email(
 
         targetlist=email,
@@ -83,7 +83,7 @@ async def auth_uestc_mail_send(_req: Request) -> HTTPResponse:
         html=True,
         sendername="YulinSec",
     )
-    # await _req.app.ctx.smtp_close(_req.app, None)
+    await _req.app.ctx.smtp_close(_req.app, None)
 
     _req.app.ctx.worker.log(
         "info",

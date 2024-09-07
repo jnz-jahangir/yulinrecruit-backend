@@ -7,7 +7,7 @@ from .AES_module import encrypt_oracle, decrypt_oracle
 import base64
 
 
-class ip_user_mail_hecker:
+class ip_user_mail_checker:
     def __init__(self) -> object:
         self.ip_list = []
         self.ip_time = []
@@ -46,7 +46,7 @@ class ip_user_mail_hecker:
             return True
 
 
-ipChecker = ip_user_mail_hecker()
+ipChecker = ip_user_mail_checker()
 
 
 def check_ip(ip: str) -> str:
