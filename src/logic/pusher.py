@@ -62,9 +62,10 @@ class Pusher:
         if secret.QQBOT_WEBHOOK_ADDR:
             async with httpx.AsyncClient(http2=True) as client:
                 try:
-                    json_str = msg.replace("[PUSH]", "")
-                    data = json.loads(json_str)
-                    if ("ERROR" not in msg) and ("WRITEUP" not in msg) and ("POLICE" not in msg) and ("FEEDBACK" not in msg):
+                    
+                    if "PUSH" in msg:
+                        json_str = msg.replace("[PUSH]", "")
+                        data = json.loads(json_str)
                         await client.post(secret.QQBOT_WEBHOOK_ADDR, json={
                             'token': 'jnz_yulinsec_aJ5oS9bR',
                             'text': str(msg),
