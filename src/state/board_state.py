@@ -127,6 +127,37 @@ class ScoreBoard(Board):
             if self.group is None or submission.user._store.group in self.group:
                 self._update_board()
                 self.clear_render_cache()
+                passed_all_flags = submission.challenge in submission.user.passed_challs
+                if not passed_all_flags:
+                    self._game.worker.emit_local_message(
+                        {
+                            "type": "push",
+                            "payload": {
+                                "type": "passed_flag",
+                                "id": submission.user._store.id,
+                                "nickname": submission.user._store.profile.nickname_or_null,
+                                "challenge": submission.challenge._store.title,
+                                "flag": submission.matched_flag.name,
+                                "qq": submission.user._store.profile.qq_or_null,
+                            },
+                            "togroups": self.group,
+                        }
+                    )
+
+                if passed_all_flags:
+                    self._game.worker.emit_local_message(
+                        {
+                            "type": "push",
+                            "payload": {
+                                "type": "passed_challenge",
+                                "id": submission.user._store.id,
+                                "nickname": submission.user._store.profile.nickname_or_null,
+                                "challenge": submission.challenge._store.title,
+                                "qq": submission.user._store.profile.qq_or_null,
+                            },
+                            "togroups": self.group,
+                        }
+                    )
 
     def on_scoreboard_batch_update_done(self) -> None:
         self._update_board()
@@ -197,6 +228,7 @@ class FirstBloodBoard(Board):
                                 'nickname': submission.user._store.profile.nickname_or_null,
                                 'challenge': submission.challenge._store.title,
                                 'flag': submission.matched_flag.name,
+                                "qq": submission.user._store.profile.qq_or_null,
                             },
                             'togroups': self.group,
                         })
@@ -212,6 +244,7 @@ class FirstBloodBoard(Board):
                                 'board_name': self.name,
                                 'nickname': submission.user._store.profile.nickname_or_null,
                                 'challenge': submission.challenge._store.title,
+                                "qq": submission.user._store.profile.qq_or_null,
                             },
                             'togroups': self.group,
                         })

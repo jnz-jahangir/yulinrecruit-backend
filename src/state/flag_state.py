@@ -13,7 +13,7 @@ from .. import secret
 
 def leet_flag(flag: str, token: str, salt: str) -> str:
     uid = int(hashlib.sha256((token+salt).encode()).hexdigest(), 16)
-    rcont = flag[len('flag{'):-len('}')]
+    rcont = flag[len('YulinSec{'):-len('}')]
     rdlis=[]
 
     for i in range(len(rcont)):
@@ -32,7 +32,7 @@ def leet_flag(flag: str, token: str, salt: str) -> str:
         px = rcont[npp]
         rcont = rcont[:npp] + (px.upper() if px in string.ascii_lowercase else px.lower()) + rcont[npp+1:]
 
-    return 'flag{'+rcont+'}'
+    return 'YulinSec{'+rcont+'}'
 
 def dyn_flag(flag: Flag, user: User) -> str:
     assert isinstance(flag.val, str)

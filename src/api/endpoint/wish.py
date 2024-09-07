@@ -76,6 +76,7 @@ async def update_profile(_req: Request, body: UpdateProfileParam, worker: Worker
     profile = UserProfileStore()
     for field in required_fields:
         if field not in body.profile:
+            print(required_fields)
             return {'error': 'INVALID_PARAM', 'error_msg': f'缺少 {field} 信息'}
         setattr(profile, f'{field}_or_null', str(body.profile[field]))
         fields[field] = str(body.profile[field])

@@ -150,3 +150,6 @@ AES_KEY = "FoxSuzuran is so cute a fox!"
 
 # PATTERN
 MAIL_PATTERN = r"^^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+# QQBOT
+QQBOT_WEBHOOK_ADDR = "http://127.0.0.1:5050/webhook"

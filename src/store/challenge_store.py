@@ -20,7 +20,7 @@ class ChallengeStore(Table):
     actions: List[Dict[str, Any]] = Column(JSON, nullable=False)
     flags: List[Dict[str, Any]] = Column(JSON, nullable=False)
 
-    VAL_FLAG = re.compile(r'^flag{[\x20-\x7c\x7e]{1,100}}$') # 0x7d is '}'
+    VAL_FLAG = re.compile(r'^YulinSec{.{1,100}}$') # 0x7d is '}'
     MAX_FLAG_LEN = 110
 
     CAT_COLORS = {
@@ -101,9 +101,9 @@ class ChallengeStore(Table):
         return flags
 
     FLAG_SNIPPETS = {
-        'static': '''{"name": "", "type": "static", "val" : "flag{}", "base_score": 100}''',
-        'leet': '''{"name": "", "type": "leet", "val" : "flag{}", "salt": "", "base_score": 100}''',
-        'partitioned': '''{"name": "", "type": "partitioned", "val" : ["flag{}"], "base_score": 100}''',
+        'static': '''{"name": "", "type": "static", "val" : "YulinSec{}", "base_score": 100}''',
+        'leet': '''{"name": "", "type": "leet", "val" : "YulinSec{}", "salt": "", "base_score": 100}''',
+        'partitioned': '''{"name": "", "type": "partitioned", "val" : ["YulinSec{}"], "base_score": 100}''',
         'dynamic': '''{"name": "", "type": "dynamic", "val" : "module_path", "base_score": 100}''',
     }
 
