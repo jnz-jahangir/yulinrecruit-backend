@@ -20,7 +20,6 @@ class Pusher:
 
     async def push_message(self, msg: str, chan: Optional[str]) -> None:
         print('push message', chan)
-        print(msg)
         if (not secret.FEISHU_WEBHOOK_ADDR) and (not secret.QQBOT_WEBHOOK_ADDR):
             return
         if chan:
@@ -37,14 +36,14 @@ class Pusher:
                     hist.popleft()
 
                 hist.append(time.time())
-        if "PUSH" in msg:
-            time.sleep(random.random())
-            if await msg_history.is_msg_in_cache(msg):
-                print("Message in cache, skip")
-                return
-            else:
-                await msg_history.set_msg_history(msg)
-                msg = parse_msg(msg)
+        # if "PUSH" in msg:
+        #     time.sleep(random.random())
+        #     if await msg_history.is_msg_in_cache(msg):
+        #         print("Message in cache, skip")
+        #         return
+        #     else:
+        #         await msg_history.set_msg_history(msg)
+        #         msg = parse_msg(msg)
 
         if secret.FEISHU_WEBHOOK_ADDR:
             async with httpx.AsyncClient(http2=True) as client:
@@ -62,15 +61,24 @@ class Pusher:
         if secret.QQBOT_WEBHOOK_ADDR:
             async with httpx.AsyncClient(http2=True) as client:
                 try:
-                    
                     if "PUSH" in msg:
+                        time.sleep(random.random())
+                        if await msg_history.is_msg_in_cache(msg):
+                            print("Message in cache, skip")
+                            return
+                        else:
+                            await msg_history.set_msg_history(msg)
+                            msgtext = parse_msg(msg)
                         json_str = msg.replace("[PUSH]", "")
                         data = json.loads(json_str)
+                        print(json_str)
                         await client.post(secret.QQBOT_WEBHOOK_ADDR, json={
                             'token': 'jnz_yulinsec_aJ5oS9bR',
-                            'text': str(msg),
+                            'text': msgtext,
                             'qq': data['qq'],
+                            'type': 'PUSH',
                         })
+                        print("PUSHED QQ MSG")
                 except Exception as e:
                     print('PUSH QQ MESSAGE FAILED', utils.get_traceback(e))
                     pass

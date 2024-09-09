@@ -4,7 +4,7 @@ import requests
 import asyncio
 from pathlib import Path
 import sys
-
+import json
 sys.path.append(str(Path(".").resolve()))
 
 from src.logic.worker import Worker
@@ -49,6 +49,21 @@ def send_group_msg(group_id, message):
     else:
         print("Failed to send message")
         print(response.status_code, response.text)
+
+def user_in_member(user_id, group_id):
+    url = f"{base_url}/get_group_member_list"
+    params = {
+        "group_id": group_id
+    }
+    res = requests.get(url=url, params=params)
+    data = json.loads(res.text)['data']
+    member = []
+    for user in data:
+        if user == user_id:
+            return True
+        member.append(user['user_id'])
+    print(member)
+    return False
 
 def get_rank():
     utils.fix_zmq_asyncio_windows()
@@ -120,8 +135,9 @@ def webhook():
     data = request.json
     print("Received Webhook:", data)
 
-    if 'token' in data and data['token'] == 'jnz_yulinsec':
-        send_group_msg(392686341, data['text'])
+    if 'token' in data and data['token'] == token:
+        print(user_in_member(user_id=data['qq'], group_id=708436450))
+        send_group_msg(708436450, data['text'])
     else: 
         print("illegal token:", data['token'])
 
