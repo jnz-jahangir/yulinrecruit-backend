@@ -10,3 +10,4 @@ __pycache__/
 /src/api/endpoint/auth_pku.py
 statics/anticheat_log/
 /data/
+*.log

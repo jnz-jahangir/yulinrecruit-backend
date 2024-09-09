@@ -40,9 +40,9 @@ FEISHU_WEBHOOK_ADDR: Optional[str] = None # None to disable feishu push
 
 #### RANDOM BULLSHITS
 
-ADMIN_SESSION_SECRET = 'some_long_random_string'
+ADMIN_SESSION_SECRET = 'nU2hN8eP6mQ5fH2qC5eN1bD2kG9gD2cL7fB1iS7cZ2nB5mC8xV'
 GLITTER_SSRF_TOKEN = 'some_long_random_string'
-ADMIN_2FA_COOKIE = 'some_long_random_string'
+ADMIN_2FA_COOKIE = 'nU2hN8eP6mQ5fH2qC5eN1bD2kG9gD2cL7fB1iS7cZ2nB5mC8xV'
 
 #### SIGNING KEYS
 
@@ -116,7 +116,7 @@ MANUAL_AUTH_ENABLED = True # it should be disabled in production after setting u
 REGISTRATION_ENABLED = True # can register new user; if set to false, only existing users can login
 
 def IS_ADMIN(user: UserStore) -> bool:
-    ADMIN_UIDS = [1]
+    ADMIN_UIDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
     # print('[ADMIN INFO]', user.id in ADMIN_UIDS)
     return (
         user is not None
