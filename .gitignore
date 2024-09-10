@@ -9,5 +9,6 @@ __pycache__/
 # /src/secret.py
 /src/api/endpoint/auth_pku.py
 statics/anticheat_log/
+statics/writeup
 /data/
 *.log
