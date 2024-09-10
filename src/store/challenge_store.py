@@ -190,7 +190,7 @@ class ChallengeStore(Table):
         'terminal': '''{"name": "题目", "effective_after": 0, "type": "terminal", "host" : "probXX.geekgame.pku.edu.cn", "port" : 0}''',
         'attachment': '''{"name": "题目附件", "effective_after": 0, "type": "attachment", "filename" : "probXX.zip", "file_path": ""}''',
         'dyn_attachment': '''{"name": "题目附件", "effective_after": 0, "type": "dyn_attachment", "filename" : "probXX.zip", "module_path": ""}''',
-        'card': '''{"name": "题目网页", "effective_after": 0, "type": "card", "url" : "https://probXX.geekgame.pku.edu.cn/?token={{token}}"}''',
+        'card': '''{"name": "题目网页", "effective_after": 0, "type": "card", "desc": "", "url" : "https://probXX.geekgame.pku.edu.cn/?token={{token}}"}''',
     }
 
     @classmethod

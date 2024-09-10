@@ -1,0 +1,15 @@
+root
+lshyQWE1104,./
+Linux
+
+CT模板位置：Storage_Test
+
+跳板：root@server.malossov.top -p 2222
+
+
+ SSH   <-  Forwarded (remote) 127.0.0.1:8000 → (local) 127.0.0.1:80
+ VM的8000 变成了 windows的80的页面
+
+pve
+jnz
+jnz2024!?"}

@@ -1,0 +1,27 @@
+[lfi]
+port: 21000-21006
+YulinSec{U2VlbVlvdUZpbmRTb21ldGhpbmc}
+YulinSec{Tm93WW91SGF2ZUxlYXJudEhvdzJMRkk}
+YulinSec{R29vb29vb29vb29vbyEhIQ}
+YulinSec{N0w_y0u_see_me!SXNUaGVyZUFueXRoaW5nPw}
+YulinSec{WW91QXJlU2tpbGxlZE5vdyE}
+YulinSec{U29Hb29vb29vb29vZCEh}
+YulinSec{RXhlY2VsbGVudCEhIWhoaGg}
+
+[xss]
+port: 55555
+YulinSec{x5s_Is_U53fu1_&_dAng3R}
+YulinSec{X5s_15_d1fFicuLt}
+YulinSec{h0W_2_BYpa55_b1ackIi5t}
+YulinSec{HaRd3r_Bypa55_G0}
+YulinSec{D0ubl3_wrIt3#BypaS5_15_U53Fu1}
+YulinSec{P53ud0_pRot0co1_bypa55}
+YulinSec{FInd_th3_Hid3n_inPut}
+
+[rce]
+port: 44830-44834
+YulinSec{e@zy_rce0!}
+YulinSec{url3nC0d3_1s_uSeful}
+YulinSec{base64_I5_uSEFuL_TOo_v2}
+YulinSec{We8$heL1_1$_1N7ERes71n9_v2}
+YulinSec{BLinD_I5_awful}

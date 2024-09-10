@@ -17,9 +17,13 @@ N_THRESHOLD = 10
 app = Flask(__name__)
 
 token = 'jnz_yulinsec_aJ5oS9bR'
-base_url = 'http://127.0.0.1:3000'
+base_url = 'http://127.0.0.1:30001'
 
-groups = [708436450, 392686341, 953428132]
+admin_id = 1047505798 # 运维QQ
+user_group = 708436450 # 招新群
+admin_group = 708436450 # 管理群
+groups = [708436450] 
+
 welcome = '''
 ====YulinSec====
 ==🪐御梦而生，如鹿归林🦌==
@@ -50,16 +54,34 @@ def send_group_msg(group_id, message):
         print("Failed to send message")
         print(response.status_code, response.text)
 
-def user_in_member(user_id, group_id):
+def send_private_msg(user_id, message):
+    url = f"{base_url}/send_private_msg"
+    params = {
+        "group_id": user_id,
+        "message": message,
+        "access_token": token
+    }
+    response = requests.get(url=url, params=params)
+
+    if response.status_code == 200:
+        print("Message sent successfully")
+    else:
+        print("Failed to send message")
+        print(response.status_code, response.text)
+
+def user_in_group(user_id, group_id):
     url = f"{base_url}/get_group_member_list"
     params = {
-        "group_id": group_id
+        "group_id": group_id,
+        "access_token": token
     }
     res = requests.get(url=url, params=params)
+    print(res.text)
     data = json.loads(res.text)['data']
     member = []
     for user in data:
-        if user == user_id:
+        # print(user, type(user), user_id, type(user_id))
+        if str(user['user_id']) == str(user_id):
             return True
         member.append(user['user_id'])
     print(member)
@@ -136,8 +158,15 @@ def webhook():
     print("Received Webhook:", data)
 
     if 'token' in data and data['token'] == token:
-        print(user_in_member(user_id=data['qq'], group_id=708436450))
-        send_group_msg(708436450, data['text'])
+        if data['type'] == 'PUSH':
+            if user_in_group(user_id=data['qq'], group_id=user_group):
+                name = data['nickname']
+                data['text'] = data['text'].replace(f"【{name}】", f"【{name}】([CQ:at,qq={data['qq']}])")
+            send_group_msg(user_group, data['text'])
+        if data['type'] == 'NOTICE':
+            send_group_msg(admin_group, data['text'])
+        if data['type'] == 'ERROR':
+            send_private_msg(admin_id, data['text'])
     else: 
         print("illegal token:", data['token'])
 
