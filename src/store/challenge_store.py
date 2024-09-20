@@ -42,6 +42,7 @@ class ChallengeStore(Table):
         "SSRF": "#897858",
         "Android": "#FFFACD",
         "Intranet": "#9f9847",
+        "Penetration": "#9f9847",
         "Forensics": "#333300",
         "Stego": "#556B2F",
         "Recon": "#008B8B",

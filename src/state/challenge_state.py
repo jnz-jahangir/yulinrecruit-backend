@@ -164,7 +164,7 @@ class Challenge(WithGameLifecycle):
 
         return {
             'first_blood_award_eligible': m.get('first_blood_award_eligible', False) and (is_main_board or board is None),
-            'author': None if self._game.cur_tick<Trigger.TRIGGER_BOARD_END else m.get('author', None),
+            'author': m.get('author', None),
         }
 
     def __repr__(self) -> str:
