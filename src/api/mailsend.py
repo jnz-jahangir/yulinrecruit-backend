@@ -35,7 +35,7 @@ class ip_user_mail_checker:
             self.mail_time.pop(0)
 
         if mail in self.mail_list:
-            if time.time() - self.mail_time[self.mail_list.index(mail)] < 60:
+            if time.time() - self.mail_time[self.mail_list.index(mail)] < 15:
                 return False
             else:
                 self.mail_time[self.mail_list.index(mail)] = time.time()
