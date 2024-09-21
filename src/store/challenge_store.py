@@ -132,9 +132,9 @@ class ChallengeStore(Table):
                 assert isinstance(action['url'], str), 'card action url should be str'
 
             if action['type']=='webdocker':
-                assert 'host' in action, 'webdocker action should have host'
-                assert isinstance(action['host'], str), 'webdocker action host should be str'
-                assert ':' not in action['host'], 'webdocker action host should not contain protocol or port'
+                assert 'docker_id' in action, 'webdocker action should have docker_id'
+                assert isinstance(action['docker_id'], str), 'webdocker action docker_id should be str'
+                assert ':' not in action['docker_id'], 'webdocker action docker_id should not contain protocol or port'
 
             elif action['type']=='terminal':
                 assert 'host' in action, 'terminal action should have host'
