@@ -187,7 +187,7 @@ class ChallengeStore(Table):
 
     ACTION_SNIPPETS = {
         'webpage': '''{"name": "题目网页", "effective_after": 0, "type": "webpage", "url" : "http://prob00-xxx.recruit.yulinsec.cn/"}''',
-        'webdocker': '''{"name": "环境管理", "effective_after": 0, "type": "webdocker", "desc" : "本题为每名选手分配一个独立的后端环境，在环境未到期时可以为环境续期，如果题目出现问题可以手动关闭环境", "docker_id" : ""}''',
+        'webdocker': '''{"name": "环境管理", "effective_after": 0, "type": "webdocker", "desc" : "本题为每名选手分配一个独立的后端环境\n在环境未到期时可以为环境续期\n如果题目出现问题可以手动关闭环境", "docker_id" : ""}''',
         'terminal': '''{"name": "题目", "effective_after": 0, "type": "terminal", "host" : "probXX.geekgame.pku.edu.cn", "port" : 0}''',
         'attachment': '''{"name": "题目附件", "effective_after": 0, "type": "attachment", "filename" : "probXX.zip", "file_path": ""}''',
         'dyn_attachment': '''{"name": "题目附件", "effective_after": 0, "type": "dyn_attachment", "filename" : "probXX.zip", "module_path": ""}''',
