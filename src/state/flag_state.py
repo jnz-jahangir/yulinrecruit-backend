@@ -67,6 +67,8 @@ class Flag(WithGameLifecycle):
 
     def _calc_cur_score(self) -> int:
         u = len(self.passed_users_for_score_calculation)
+        if u != 0:
+            u = u-1
         return int(self.base_score * (.4 + .6 * (.9**u)))
 
     def _update_cur_score(self, sub: Submission) -> None:
