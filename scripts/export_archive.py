@@ -133,7 +133,7 @@ def export_official_writeup(game: Game, ch: Challenge, p: Path) -> None:
                 d.append(f'**[【附件：下载{act["name"]}（{fn}）】](attachment/{fn})**')
         elif act['type'] in ['webpage', 'webdocker', 'card']:
             d.append(f'**【网页链接：访问{act["name"]}】**')
-        elif act['type']=='terminal':
+        elif act['type'] in ['terminal', 'pwndocker']:
             d.append(f'**【终端交互：连接到{act["name"]}】**')
         else:
             assert False, act['type']
