@@ -96,7 +96,7 @@
 
 ### 2-4 题目平台说明
 
-题目平台地址：[https://recruit.yulinsec.cn](https:/recruit.yulinsec.cn)
+题目平台地址：[https://recruit.yulinsec.cn](https://recruit.yulinsec.cn)
 
 - 注册
     - 注册时需要用到邮箱，未经邮箱验证无法登录，存在特殊情况无法登录的同学，请联系[@Jnz](mailto:ycjunjie@qq.com)

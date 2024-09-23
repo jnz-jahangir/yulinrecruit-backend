@@ -116,7 +116,7 @@ MANUAL_AUTH_ENABLED = True # it should be disabled in production after setting u
 REGISTRATION_ENABLED = True # can register new user; if set to false, only existing users can login
 
 def IS_ADMIN(user: UserStore) -> bool:
-    ADMIN_UIDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    ADMIN_UIDS = [1, 3, 5, 6, 7, 13, 26, 91]
     # print('[ADMIN INFO]', user.id in ADMIN_UIDS)
     return (
         user is not None
@@ -124,7 +124,7 @@ def IS_ADMIN(user: UserStore) -> bool:
     )
 
 def IS_DESTRUCTIVE_ADMIN(user: UserStore) -> bool:
-    WRITABLE_ADMIN_UIDS = [1]
+    WRITABLE_ADMIN_UIDS = [1, 3, 5, 6, 7, 13, 26, 91]
     return (
         user is not None
         and user.id in WRITABLE_ADMIN_UIDS
