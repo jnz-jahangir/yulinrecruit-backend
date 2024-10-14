@@ -192,7 +192,7 @@ class ChallengeStore(Table):
         'attachment': '''{"name": "题目附件", "effective_after": 0, "type": "attachment", "filename" : "probXX.zip", "file_path": ""}''',
         'dyn_attachment': '''{"name": "题目附件", "effective_after": 0, "type": "dyn_attachment", "filename" : "probXX.zip", "module_path": ""}''',
         'card': '''{"name": "题目网页", "effective_after": 0, "type": "card", "desc": "", "url" : "https://prob00-xxx.recruit.yulinsec.cn/"}''',
-        'pwndocker': '''{"name": "环境管理", "effective_after": 0, "type": "pwndocker", "desc": "", "docker_id": "", "host": ""}''',
+        'pwndocker': '''{"name": "环境管理", "effective_after": 0, "type": "pwndocker", "desc": "", "docker_id": "", "host": "", "attachment": ""}''',
     }
 
     @classmethod
