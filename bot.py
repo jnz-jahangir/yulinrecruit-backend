@@ -157,7 +157,7 @@ def receive_event():
                 send_group_msg(group_id, get_rank())
             if msg == "rank all":
                 send_group_msg(group_id, get_rank_all())
-        elif '通知：' in msg or '重要通知' in msg or '进群' in msg or '群号' in msg:
+        elif '通知：' in msg or '重要通知' in msg or '进群' in msg or '群号' in msg or '加群' in msg or '福利' in msg:
             set_group_ban(group_id=group_id, user_id=user_id, duration=86400)
 
     elif 'notice_type' in data and data['notice_type'] == 'group_increase' and data['group_id'] in groups:
